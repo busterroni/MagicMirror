@@ -1,0 +1,99 @@
+$def with (temp_f, summary, weather_icon, *args)
+<!DOCTYPE HTML>
+
+<html>
+	<head>
+		<link rel="stylesheet" type="text/css" href="../static/human.css">
+		<link rel="stylesheet" href="../static/weather.css">
+    	<link href="https://fonts.googleapis.com/css?family=Lato:400,700,900" rel="stylesheet">
+	</head>
+
+	<body bgcolor="black">
+		<!-- <meta http-equiv="refresh" content="3" /> -->
+		<div id="all">
+			<div class="model">
+				<div class="human-body human"></div>
+				$if args[1] == 0:
+					<div class="brown-pants human"></div>
+				$if args[1] == 1:
+					<div class="teal-pants human"></div>
+				$if args[1] == 2:
+					<div class="blue-pants human"></div>
+				$if args[1] == 3:
+					<div class="red-shorts human"></div>
+				$if args[1] == 4:
+					<div class="orange-shorts human"></div>
+
+
+
+				$if args[0] == 0:
+					<div class="blue-tank human"></div>
+				$if args[0] == 1:
+					<div class="green-tshirt human"></div>
+				$if args[0] == 2:
+					<div class="orange-tshirt human"></div>
+				$if args[0] == 3:
+					<div class="white-tshirt human"></div>
+				$if args[0] == 4:
+					<div class="grey-tshirt human"></div>
+
+				$if args[0] == 6:
+					<div class="grey-jacket human"></div>
+				$if args[0] == 7:
+					<div class="blue-jacket human"></div>
+				$if args[0] == 8:
+					<div class="red-jacket human"></div>
+
+				$if args[0] == 9:
+					<div class="phillies-shirt human"></div>
+
+
+
+				<div id="head" class="human"></div>
+<!-- 
+				$if len(args) == 3 and temp_f < 40:
+					$if args[2] == 0:
+						<div class="red-beanie human"></div>
+					$if args[2] == 1:
+						<div class="white-beanie human"></div>
+					$if args[2] == 2:
+						<div class="blue-beanie human"></div>
+
+				$if len(args) == 3 and temp_f >= 70:
+					<div class="blue-sunglasses human"></div> -->
+
+
+				<!-- <div class="black-sunglasses human"></div> -->
+				<!-- <div class="black-pants human"></div> -->
+				<!-- <div class="black-jacket human"></div> -->
+				<!-- <div class="eagles-sweatshirt human"></div> -->
+
+
+
+			</div>
+
+
+			<div class="weather">
+				<canvas id="skycon" class="weather-icon" width="128" height="128"></canvas>
+				<div class="weather-info">
+				  <h1>
+					$temp_f°
+				  </h1>
+				  $summary
+				</div>
+			</div>
+		</div>
+		
+		<script src="https://code.jquery.com/jquery-2.2.1.min.js"
+				integrity="sha256-gvQgAFzTH6trSrAWoH1iPo9Xc96QxSZ3feW6kem+O00="
+				crossorigin="anonymous"></script>
+		<script src="./static//skycons.js"></script>
+		<script>
+		  var skycons = new Skycons({"color": "white"});
+
+		  skycons.add("skycon", "$weather_icon");
+
+		  skycons.play();
+		</script>
+  </body>
+</html>
